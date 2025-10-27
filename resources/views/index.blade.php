@@ -6,6 +6,7 @@
     <title>TechVerse Blog</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/global.css') }}">
+    <script type="module" src="{{ asset('js/global.js') }}"></script>
     <style>
         /* ===== RESET ===== */
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -91,7 +92,7 @@
         .btn--delete { background-color: #d62828; color: white; }
         .btn--delete:hover { background-color: #b81f1f; }
         .btn--create { background-color: #0096c7; color: white; margin-top: 20px; text-align: center; display: block; width: fit-content; }
-        .btn--create:hover { background-color: #0077b6; }
+        .btn--create:hover { background-color: #0077b6; color: #FFF;}
 
         /* ===== FOOTER ===== */
         .footer { background: #222; color: #ccc; text-align: center; padding: 20px; font-size: 0.9rem; }

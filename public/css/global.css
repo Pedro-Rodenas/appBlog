@@ -91,3 +91,18 @@ form:hover {
 html {
     scroll-behavior: smooth;
 }
+
+
+/* Elemento del cursor */
+.cursor-aura {
+    position: fixed;
+    pointer-events: none; /* No bloquea clicks */
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    border: 2px solid rgba(0, 150, 255, 0.5);
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease, width 0.2s ease, height 0.2s ease, border-color 0.3s ease;
+    z-index: 9999;
+    mix-blend-mode: difference; /* efecto sutil sobre fondos */
+}

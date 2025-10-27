@@ -6,6 +6,7 @@
     <title>Crear Nueva Publicación — TechVerse Blog</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <link rel="stylesheet" href="{{ asset('css/global.css') }}">
+    <script type="module" src="{{ asset('js/global.js') }}"></script>
     <style>
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
