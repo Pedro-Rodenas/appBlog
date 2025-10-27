@@ -1,0 +1,93 @@
+/* =========================================
+   CURSOR Y EFECTOS GLOBALES
+========================================= */
+
+/* Cambiar cursor general */
+body, input, textarea, button, a {
+    cursor: url('https://cdn-icons-png.flaticon.com/512/32/32394.png'), auto; /* ejemplo de cursor */
+    transition: all 0.3s ease;
+}
+
+/* Efecto de pulsación suave al pasar sobre cualquier botón */
+button, .btn {
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+}
+
+button:hover, .btn:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Efecto de glow en inputs y textarea al focus */
+input:focus, textarea:focus {
+    outline: none;
+    border-color: #005eff;
+    box-shadow: 0 0 8px rgba(0, 94, 255, 0.5);
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+/* Animación de enlace tipo “botón” */
+a {
+    transition: color 0.3s ease, transform 0.2s ease;
+}
+
+a:hover {
+    color: #005eff;
+    transform: translateY(-2px);
+}
+
+/* Animación de fade-in al cargar páginas */
+body {
+    opacity: 0;
+    animation: fadeInPage 0.8s forwards ease-in;
+}
+
+@keyframes fadeInPage {
+    to { opacity: 1; }
+}
+
+/* Animación de hover en tarjetas o divs de libros/posts */
+.card, .post__item, .book__item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover, .post__item:hover, .book__item:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* Animación de pulsación de botones CTA grandes */
+.btn--save, .btn--create {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn--save::after, .btn--create::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: -100%;
+    top: 0;
+    background: rgba(255, 255, 255, 0.2);
+    transform: skewX(-20deg);
+    transition: all 0.5s;
+}
+
+.btn--save:hover::after, .btn--create:hover::after {
+    left: 200%;
+}
+
+/* Animación de transición en formularios */
+form {
+    transition: all 0.3s ease;
+}
+
+form:hover {
+    transform: translateY(-2px);
+}
+
+/* Optional: animación de scroll suave */
+html {
+    scroll-behavior: smooth;
+}
