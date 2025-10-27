@@ -24,11 +24,11 @@ class PostController extends Controller
     {
         // Guarda un nuevo post
         $request->validate([
-            'titulo' => 'required',
-            'contenido' => 'required'
+            'title' => 'required',
+            'content' => 'required'
         ]);
 
-        Post::create($request->all());
+        Post::create($request->only(['title', 'content']));
         return redirect()->route('posts.index')->with('success', 'Post creado correctamente.');
     }
 
@@ -42,8 +42,13 @@ class PostController extends Controller
     public function update(Request $request, $id)
     {
         // Actualiza el post
+        $request->validate([
+            'title' => 'required',
+            'content' => 'required'
+        ]);
+
         $post = Post::findOrFail($id);
-        $post->update($request->all());
+        $post->update($request->only(['title', 'content']));
 
         return redirect()->route('posts.index')->with('success', 'Post actualizado correctamente.');
     }
