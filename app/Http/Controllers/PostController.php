@@ -7,46 +7,51 @@ use App\Models\Post;
 
 class PostController extends Controller
 {
-    // Listar publicaciones
     public function index()
     {
+        // Muestra la lista de posts
         $posts = Post::all();
-        return view('posts.index', compact('posts'));
+        return view('index', compact('posts'));
     }
-    // Mostrar formulario para crear
+
     public function create()
     {
-        return view('posts.create');
+        // Muestra el formulario de creación
+        return view('create');
     }
-    // Guardar una nueva publicación
+
     public function store(Request $request)
     {
+        // Guarda un nuevo post
         $request->validate([
-            'title' => 'required',
-            'content' => 'required',
+            'titulo' => 'required',
+            'contenido' => 'required'
         ]);
+
         Post::create($request->all());
-        return redirect()->route('posts.index');
+        return redirect()->route('posts.index')->with('success', 'Post creado correctamente.');
     }
-    // Mostrar formulario para editar
-    public function edit(Post $post)
+
+    public function edit($id)
     {
-        return view('posts.edit', compact('post'));
+        // Muestra el formulario de edición
+        $post = Post::findOrFail($id);
+        return view('edit', compact('post'));
     }
-    // Actualizar publicación
-    public function update(Request $request, Post $post)
+
+    public function update(Request $request, $id)
     {
-        $request->validate([
-            'title' => 'required',
-            'content' => 'required',
-        ]);
+        // Actualiza el post
+        $post = Post::findOrFail($id);
         $post->update($request->all());
-        return redirect()->route('posts.index');
+
+        return redirect()->route('posts.index')->with('success', 'Post actualizado correctamente.');
     }
-    // Eliminar publicación
-    public function destroy(Post $post)
+
+    public function destroy($id)
     {
-        $post->delete();
-        return redirect()->route('posts.index');
+        // Elimina el post
+        Post::destroy($id);
+        return redirect()->route('posts.index')->with('success', 'Post eliminado correctamente.');
     }
 }
